@@ -20,6 +20,7 @@ while (again.ToLower() == "a")
     {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Nezadali jste kladné číslo. Zadejte šířku znovu: ");
+        Console.ResetColor();
     }
 
     // 2. načtení výšky
@@ -29,6 +30,7 @@ while (again.ToLower() == "a")
     {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Nezadali jste kladné číslo. Zadejte výšku znovu: ");
+        Console.ResetColor();
     }
 
 
@@ -59,13 +61,20 @@ while (again.ToLower() == "a")
     {
         // Vnitřní cyklus, který se nám postará o to, aby se v každém řádku vykreslil správný počet znaků
         for (int j = 1; j <= width; j++)
-        {
+        { if (j % 2 == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
             Console.Write("* ");
         }
         Console.WriteLine();
     }
-}
 // 5. Dotaz na opakování programu
 Console.WriteLine();
 Console.WriteLine("Chcete program spustit znovu? (a/n)");       
 again = Console.ReadLine();
+}
